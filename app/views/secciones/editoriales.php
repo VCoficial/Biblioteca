@@ -1,0 +1,53 @@
+<?php require_once '../app/views/inc/header.php'; ?>
+
+
+
+<br><br>
+<div class="container  ">
+
+    <div class="row text-center ">
+        <div class="col-md-6  ">
+            <form method="POST" action="<?php echo URLROOT; ?>Editoriales/insertarEditoriales" id="formUsuarios" class="text-white bg-dark p-3 border border-1 rounded  w-75 mx-auto ">
+                
+                <div class="form-group">
+                    <label for="">Nombre Editorial</label>
+                    <input type="text" class="form-control" name="nombre1" placeholder="Ingrese su primer nombre" required> <br>
+                </div>
+                <input id="enviarDatos" value="Registrar" type="submit" class="btn btn-primary w-50 "></input>
+            </form><br>
+        </div>
+
+        <div class="col-md-6 bg-dark border border-1 rounded  table-responsive ">
+            <br>
+            <table class="table table-dark table-hover  table-striped">
+                <div class="d-flex justify-content-around " >
+                    <form class="" method="POST" action="<?php echo URLROOT; ?>Editoriales/buscarEditorial">
+                        <input name="buscar" class="form-control w-50 "  type="text">
+                        <input  value="Buscar" class=" btn  btn-success w-25 form-control" type="submit">
+                    </form>
+                </div><br>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Estado</th>
+                    <th>Opciones</th>
+                </tr>
+                <?php foreach ($data as $recorrer) :   ?>
+                    <tr>
+                        <td><?php echo $recorrer->idEditoriales; ?></td>
+                        <td><?php echo $recorrer->NombreEditorial; ?></td>
+                        <td><?php echo $recorrer->Estado; ?></td>
+                        <td>
+                            <a class="btn btn-primary  " href="<?php echo URLROOT; ?>Editoriales/abrirActualizarEditorial/<?php echo $recorrer->idEditoriales; ?>">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+
+                <?php endforeach ?>
+
+            </table>
+        </div>
+    </div>
+                
+    <?php require_once APPROOT . "/views/inc/footer.php"; ?>
