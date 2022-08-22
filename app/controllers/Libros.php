@@ -133,4 +133,12 @@ class Libros extends Controller
         $this->index();
     }
 
+    public function imprimirReporte()
+    {
+        // traemos la data
+        $this->data = $this->libros->traerTodosLosLibros();
+        // renderisamos la vista
+        $this->renderView('reportes/rptLibro', $this->data);
+    }
+
 }

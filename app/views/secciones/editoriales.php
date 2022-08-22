@@ -8,7 +8,6 @@
     <div class="row text-center ">
         <div class="col-md-6  ">
             <form method="POST" action="<?php echo URLROOT; ?>Editoriales/insertarEditoriales" id="formUsuarios" class="text-white bg-dark p-3 border border-1 rounded  w-75 mx-auto ">
-                
                 <div class="form-group">
                     <label for="">Nombre Editorial</label>
                     <input type="text" class="form-control" name="nombre1" placeholder="Ingrese su primer nombre" required> <br>
@@ -21,6 +20,7 @@
             <br>
             <table class="table table-dark table-hover  table-striped">
                 <div class="d-flex justify-content-around " >
+                <a class="btn btn-success" href="<?php echo URLROOT; ?>Editoriales/imprimirReporte">Reporte</a>
                     <form class="" method="POST" action="<?php echo URLROOT; ?>Editoriales/buscarEditorial">
                         <input name="buscar" class="form-control w-50 "  type="text">
                         <input  value="Buscar" class=" btn  btn-success w-25 form-control" type="submit">

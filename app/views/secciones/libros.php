@@ -8,13 +8,14 @@
         <div class="col-md-12 bg-dark mx-auto w-50  table-responsive border border-1 rounded    table-responsive "><br>
 
             <form class="justify-content-between d-flex " method="POST" action="<?php echo URLROOT; ?>Libros/buscarLibro">
+                <a class="btn btn-success" href="<?php echo URLROOT; ?>Libros/imprimirReporte">Reporte</a>
                 <a class="btn btn-success w-25 " href="<?php echo URLROOT; ?>Libros/abrirRegistrarLibros">Registrar Libro</a>
                 <input name="buscarLibro" class="form-control w-25 " type="text">
                 <input type="submit" value="Buscar" class="btn btn-success text-white border border-1 border-dark  w-25 "><br>
             </form>
 
             <br>
-            <table class="table table-dark table-hover   table-striped">
+            <table class="table table-dark table-hover table-striped">
 
                 <tr>
                     <th scope="col">ID</th>
