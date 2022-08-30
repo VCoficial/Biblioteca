@@ -25,7 +25,7 @@ session_start();
                     <img src="<?php echo URLROOT; ?>img/libro.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-white ">Libros</h5>
-                        <a href="<?php echo URLROOT; ?>Libros" class="btn btn-primary">Ingresarr</a>
+                        <a href="<?php echo URLROOT; ?>Libros" class="btn btn-primary">Ingresarrrrrrrrr</a>
                     </div>
                 </div><br>
             </div>
@@ -35,7 +35,7 @@ session_start();
                     <img src="<?php echo URLROOT; ?>img/libro-abierto.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-white ">Editoriales</h5>
-                        <a href="<?php echo URLROOT; ?>editoriales" class="btn btn-primary">Ingresar</a>
+                        <a href="<?php echo URLROOT; ?>editoriales" class="btn btn-primary">Ingresarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</a>
                     </div>
                 </div>
             </div>
