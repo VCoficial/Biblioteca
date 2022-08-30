@@ -25,7 +25,7 @@ session_start();
                     <img src="<?php echo URLROOT; ?>img/libro.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-white ">Libros</h5>
-                        <a href="<?php echo URLROOT; ?>Libros" class="btn btn-primary">Ingresarrrrr</a>
+                        <a href="<?php echo URLROOT; ?>Libros" class="btn btn-primary">Ingresarrrrrrrrr</a>
                     </div>
                 </div><br>
             </div>
