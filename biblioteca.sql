@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 18-08-2022 a las 16:05:01
+-- Tiempo de generación: 30-08-2022 a las 11:18:22
 -- Versión del servidor: 5.7.33
 -- Versión de PHP: 8.1.6
 
@@ -83,18 +83,21 @@ CREATE TABLE `libros` (
   `fechaDeIngreso` date NOT NULL,
   `Autor` varchar(150) NOT NULL,
   `FechaPublicacion` date DEFAULT NULL,
-  `Cantidad` int(11) NOT NULL
+  `Cantidad` int(11) NOT NULL,
+  `Estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`idLibro`, `Nombre`, `Editoriales_idEditoriales`, `fechaDeIngreso`, `Autor`, `FechaPublicacion`, `Cantidad`) VALUES
-(1, 'Don Quijote de la Mancha', 1, '2022-08-03', 'Miguel de Cervantes', '2022-08-03', 5),
-(2, 'pinocho', 3, '2022-08-07', 'pepe', '2022-08-22', 10),
-(3, 'los siete enanitos', 2, '2022-08-01', 'pepito', '2022-08-21', 50),
-(6, 'ballena', 4, '2022-08-01', 'andres', '2022-08-12', 2);
+INSERT INTO `libros` (`idLibro`, `Nombre`, `Editoriales_idEditoriales`, `fechaDeIngreso`, `Autor`, `FechaPublicacion`, `Cantidad`, `Estado`) VALUES
+(1, 'Don Quijote de la Mancha', 1, '2022-08-03', 'Miguel de Cervantes', '2022-08-03', 0, 0),
+(2, 'pinocho', 3, '2022-08-07', 'pepe', '2022-08-22', 10, 0),
+(3, 'los siete enanitos', 2, '2022-08-01', 'pepito', '2022-08-21', 50, 0),
+(6, 'ballena', 4, '2022-08-01', 'andres', '2022-08-12', 2, 0),
+(7, 'harry poter', 2, '2022-08-11', 'hhhhhhh', '2022-08-24', 5, 0),
+(8, 'blanca nieves', 4, '2022-08-26', 'wefwefwefweff', '2022-08-30', 6, 0);
 
 -- --------------------------------------------------------
 
@@ -258,19 +261,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `editoriales`
 --
 ALTER TABLE `editoriales`
-  MODIFY `idEditoriales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idEditoriales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `penalizacion`
