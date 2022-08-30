@@ -15,7 +15,7 @@
 
 <body>
     <div class="login">
-        <h1>Bienvenido</h1>
+        <h1>Bienvenidooo</h1>
         <form method="POST" action="<?php echo URLROOT; ?>Menu/abrirMenu">
             <input id="UsuarioLogin" type="text" name="u" placeholder="Username" required="required" />
             <input id="PasswordLogin" type="password" name="p" placeholder="Password" required="required" />
