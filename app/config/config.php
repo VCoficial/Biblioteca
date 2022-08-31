@@ -9,7 +9,7 @@ Constantes
 define('APPROOT', dirname(dirname(__FILE__)));
 //echo APPROOT;
 //URL DE LA APP
-//adefine('URLROOT', 'htpp://www.eldominio.com/');
+//define('URLROOT', 'htpp://www.eldominio.com/');
 define('URLROOT', 'http://localhost/Biblioteca/');
 //Nombre de la aplicación
 define('SITENAME', 'Biblioteca Version MVC');
