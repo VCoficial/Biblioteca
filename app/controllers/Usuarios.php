@@ -18,9 +18,29 @@ class Usuarios extends Controller
 
     public function InsertarUsuarios()
     {
-        $this->Usuarios->InsertarUsuarios();
-        $this->data = $this->Usuarios->traerUsuarios();
-        $this->renderView('/secciones/usuarios', $this->data);
+
+        $this->data = [
+            'Nombre1' => $_POST["nombre1"],
+            'Nombre2' => $_POST["nombre2"],
+            'Apellido1' => $_POST["Apellido1"],
+            'Apellido2' => $_POST["Apellido2"],
+            'Telefono' => $_POST["telefonoUsuario"],
+            'Correo' => $_POST["correoUsuario"],
+            'Usuario' => $_POST["usuario"],
+            'password' => $_POST["password"],
+            'roles' => $_POST["rol"]
+        ];
+
+        $this->Usuarios->InsertarUsuarios($this->data);
+
+
+        $this->index();
+
+        //$this->data = $this->Usuarios->traerUsuarios();
+        
+        //echo json_encode($this->data);
+
+        
     }
 
     public function ActualizarUsuario()
@@ -53,4 +73,17 @@ class Usuarios extends Controller
 
         $this->renderView('/Actualizar/ActualizarUsuarios', $this->data);
     }
+
+
+    public function traerUsuarios()
+    {
+        $this->data = [
+            'id' => $id
+        ];
+
+        $this->data = $this->Usuarios->buscarUsuario($this->data);
+
+        $this->renderView('/Actualizar/ActualizarUsuarios', $this->data);
+    }
+
 }
