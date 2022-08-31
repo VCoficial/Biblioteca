@@ -47,10 +47,10 @@ foreach ($data as $libro) {
     $Ingreso = $libro->fechaDeIngreso;
     $Autor = $libro->Autor;
     $Cantidad = $libro->Cantidad;
-    //FALTA : $Estado = $libro->Estado;
+    $Estado = $libro->Estado;
 
     $pdf->SetFont('Arial', '', 10);
-    $pdf->Row(array($idLibro, utf8_decode($Nombre), $IdEditoriales, utf8_decode($Ingreso), utf8_decode($Autor), $Cantidad));
+    $pdf->Row(array($idLibro, utf8_decode($Nombre), $IdEditoriales, utf8_decode($Ingreso), utf8_decode($Autor), $Cantidad, $Estado));
 };
 
 //Mostramos el documento pdf
