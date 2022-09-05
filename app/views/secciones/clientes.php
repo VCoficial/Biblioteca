@@ -11,12 +11,11 @@
             </div>
 
             <br>
-            <table class="table table-dark table-hover  table-striped">
+            <table id="mitabla" class="table table-dark table-hover  table-striped">
 
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Identificacion</th>
-                   
+                    <th scope="col">Identificacion</th>   
                     <th scope="col">PrimerNombre</th>
                     <th scope="col">SegundoNombre</th>
                     <th scope="col">PrimerApellido</th>
@@ -25,8 +24,6 @@
                     <th scope="col">Correo</th>
                     <th scope="col">Estado</th>
                     <th scope="col">VecesPenalizado</th>
-
-
                 </tr>
 
                 <?php foreach ($data as $recorrer) {  ?>

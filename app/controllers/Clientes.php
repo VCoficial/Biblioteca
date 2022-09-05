@@ -32,7 +32,6 @@ class Clientes extends Controller
         $data = [];
         $this->renderView('Registros/registrarClientes', $data);
     }
-    
     /**
      * insertarClientes
      *
@@ -40,8 +39,6 @@ class Clientes extends Controller
      */
     public function insertarClientes()
     {
-
-
         $data = [
             'identificacion' => $_POST['identificacion'],
             'nombre1Cliente' => $_POST['nombre1Cliente'],
@@ -52,9 +49,7 @@ class Clientes extends Controller
             'correoCliente' => $_POST['correoCliente']
 
         ];
-
         $this->clientes->insertarCliente($data);
-
         $this->index();
     }
 
@@ -101,16 +96,10 @@ class Clientes extends Controller
             'correo' => $_POST['correo'],
             'estado' => $_POST['estadoCliente']
         ];
-
-        
             $this->clientes->actualizarClientes($this->data);
             $this->index();
         /*echo "<pre>";
         print_r($this->data);
         echo "<pre>";*/
-
-
-        
-        
     }
 }

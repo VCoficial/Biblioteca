@@ -41,7 +41,6 @@ class Libros extends Controller
 
         $this->libros->InsertarLibro($this->data);
         $this->index();
-        
     }
 
     public function buscarLibro()

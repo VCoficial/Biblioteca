@@ -5,7 +5,7 @@
     <div class="row text-center ">
         <div class="col-md-12  ">
 
-            <form method="POST" action="<?php echo URLROOT; ?>Clientes/insertarClientes" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
+            <form method="POST" id="formClientes" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
 
                 <div class="form-group">
 
@@ -42,13 +42,10 @@
                     <label for="">Correo</label>
                     <input type="text" name="correoCliente" class="form-control" id="correoCliente" required placeholder="Correo"><br>
                 </div>
-
-
-
                 <div class="d-flex justify-content-around ">
 
-                    <input value="Registar Cliente" type="submit" class="btn btn-primary w-50 "></input>
-                    <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Clientes">Cancelar</a>
+                    <input id="enviarDatos" value="Registar Cliente" type="submit" class="btn btn-primary w-50"></input>
+                    <a class="btn btn-danger" href="<?php echo URLROOT; ?>Clientes">Cancelar</a>
                 </div>
 
 

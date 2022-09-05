@@ -12,9 +12,6 @@ class ClientesModel
     public function traerClientes()
     {
         $this->db->query("SELECT * FROM clientes");
-
-
-
         return $this->db->getAll();
     }
 
@@ -49,7 +46,6 @@ class ClientesModel
         $valor->bindParam(":Apellido2", $data['apellido2Cliente'], pdo::PARAM_STR);
         $valor->bindParam(":telefono", $data['telefonoCliente'], pdo::PARAM_STR);
         $valor->bindParam(":Correo", $data['correoCliente'], pdo::PARAM_STR);
-
 
         $this->db->execute();
     }

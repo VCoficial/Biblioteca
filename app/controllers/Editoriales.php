@@ -63,8 +63,6 @@ class Editoriales extends Controller
 
             $this->data = $this->Editoriales->buscarEditorial($this->data);
 
-            
-
             $this->renderView('/secciones/editoriales', $this->data);
 
         }else{

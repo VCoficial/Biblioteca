@@ -4,11 +4,11 @@ let btn = document.getElementById("enviarDatos");
 btn.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let formulario = new FormData(document.getElementById("formLibros"));
+  let formulario = new FormData(document.getElementById("formClientes"));
 
   console.log(...formulario);
 
-  fetch(URLROOT + "Libros/InsertarLibro", {
+  fetch(URLROOT + "Clientes/InsertarClientes", {
     method: "post",
     body: formulario,
   })
