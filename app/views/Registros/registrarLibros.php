@@ -5,7 +5,7 @@
 
     <div class="row text-center ">
         <div class="col-md-12  ">
-            <form method="POST" action="<?php echo URLROOT; ?>Libros/InsertarLibro" class="text-white  bg-dark p-3 border border-1 rounded w-50 mx-auto ">
+            <form method="POST" id="idFormInsertarLibro" class="text-white  bg-dark p-3 border border-1 rounded w-50 mx-auto ">
                 <div class="form-group">
                     <label for="">Ingrese el nombre del libro</label>
                     <input name="nombreLibro" type="text" class="form-control" id="nombreLibro" placeholder="Nombre del libro" required> <br>
@@ -48,7 +48,7 @@
 
                 <div class="d-flex justify-content-around ">
 
-                    <input value="Registrar Libro" type="submit" class="btn btn-primary    "></input>
+                    <button id="registrarLibro" type="submit" class="btn btn-primary">Registrar Libro</button>
                     <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Libros">Cancelar</a>
                 </div>
 
@@ -60,7 +60,7 @@
     </div>
     <br>
 
-   
 
 
+    <script src="<?php echo URLROOT ?>public/js/registrarLibro.js"></script>
     <?php require_once '../app/views/inc/footer.php'; ?>

@@ -52,11 +52,11 @@ class Prestamos extends Controller
             ];
 
 
-            var_dump($data);
+            //var_dump($data);
 
-            /*$data = $this->prestamos->buscarClienteYLibro($data);
+            $data = $this->prestamos->buscarClienteYLibro($data);
 
-            $this->renderView('/Registros/registrarPrestamos', $data);*/
+            $this->renderView('/Registros/registrarPrestamos', $data);
         }
     }
 }

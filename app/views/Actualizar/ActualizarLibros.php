@@ -18,7 +18,7 @@ foreach ($data as $k) {
         <div class="col-md-12  ">
 
             <br><br><br>
-            <form method="POST" action="<?php echo URLROOT; ?>Libros/actualizarLibro" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
+            <form method="POST" id="formActualizaLibro" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
                 <div class="form-group">
                     <input name="idLibro" hidden value="<?php echo $idLibro[0] ?>" type="text">
                     <label for="">Ingrese el nombre del libro</label>
@@ -32,7 +32,7 @@ foreach ($data as $k) {
 
                         <?php foreach ($data as $recorrer) { ?>
 
-                            <option required value="<?php echo $recorrer->idEditoriales  ?>"><?php echo $recorrer->NombreEditorial?></option>
+                            <option required value="<?php echo $recorrer->idEditoriales  ?>"><?php echo $recorrer->NombreEditorial ?></option>
 
                         <?php } ?>
                     </select>
@@ -57,7 +57,7 @@ foreach ($data as $k) {
 
                 <div class="d-flex justify-content-around ">
 
-                    <input value="Actualizar" type="submit" class="btn btn-primary    "></input>
+                    <button id="actualizarLibro" type="submit" class="btn btn-primary    ">Actualizar</button>
 
                     <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Libros">Cancelar</a>
                 </div>
@@ -69,5 +69,6 @@ foreach ($data as $k) {
     </div>
     <br><br><br>
 
+    <script src="<?php echo URLROOT ?>public/js/libroActualizar.js"></script>
 
     <?php require_once '../app/views/inc/footer.php'; ?>

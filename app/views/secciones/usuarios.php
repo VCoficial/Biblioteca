@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row text-center ">
         <div class="col-md-5  ">
-            <form method="POST"  id="formUsuarios" class="text-white bg-dark p-3 border border-1 rounded  w-75 mx-auto ">
+            <form method="POST" id="formUsuarios" class="text-white bg-dark p-3 border border-1 rounded  w-75 mx-auto ">
                 <div class="form-group">
                     <label for="">Ingrese su primer nombre</label>
                     <input id="nom1JS" type="text" class="form-control" name="nombre1" placeholder="Ingrese su primer nombre" required> <br>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ingrese su primer apellido</label>
-                    <input  type="text" id="apeJS1" class="form-control" name="Apellido1" placeholder="Ingrese su primer apellido" required><br>
+                    <input type="text" id="apeJS1" class="form-control" name="Apellido1" placeholder="Ingrese su primer apellido" required><br>
                 </div>
 
                 <div class="form-group">
@@ -53,12 +53,12 @@
                     </select>
                 </div>
                 <br>
-                
+
                 <button id="enviarDatos" value="Registrar" type="submit" class="btn btn-primary w-50 ">Enviar</button>
             </form><br>
         </div>
 
-        <div class="col-md-6 bg-dark border border-1 rounded  table-responsive ">
+        <div id="contenedorTabla" class="col-md-6 bg-dark border border-1 rounded  table-responsive ">
             <br>
             <table id="mitabla" class="table table-dark table-hover  table-striped">
 
@@ -107,7 +107,8 @@
 
     </div>
 
-    <script src="<?php echo URLROOT?>public/js/usuariosJS.js"></script>
+    <script src="<?php echo URLROOT ?>public/js/usuariosJS.js"></script>
+
 
 
     <?php require_once APPROOT . "/views/inc/footer.php"; ?>

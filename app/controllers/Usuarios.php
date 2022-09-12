@@ -33,14 +33,9 @@ class Usuarios extends Controller
 
         $this->Usuarios->InsertarUsuarios($this->data);
 
+        $this->data = $this->Usuarios->traerUsuarios();
 
-        $this->index();
-
-        //$this->data = $this->Usuarios->traerUsuarios();
-        
-        //echo json_encode($this->data);
-
-        
+        echo json_encode($this->data);
     }
 
     public function ActualizarUsuario()
@@ -58,9 +53,11 @@ class Usuarios extends Controller
             'rol' => $_POST['rol'],
         ];
 
+        //echo json_encode($this->data);
+
         $this->Usuarios->ActualizarUsuario($this->data);
         $this->data = $this->Usuarios->traerUsuarios();
-        $this->renderView('secciones/usuarios', $this->data);
+        echo json_encode($this->data);
     }
 
     public function buscarUsuario($id)
@@ -75,7 +72,7 @@ class Usuarios extends Controller
     }
 
 
-    public function traerUsuarios()
+    public function traerUsuarios($id)
     {
         $this->data = [
             'id' => $id
@@ -85,5 +82,4 @@ class Usuarios extends Controller
 
         $this->renderView('/Actualizar/ActualizarUsuarios', $this->data);
     }
-
 }

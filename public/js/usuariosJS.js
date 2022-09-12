@@ -1,7 +1,8 @@
 const URLROOT = "http://localhost/Biblioteca/";
-let btn = document.getElementById("enviarDatos");
 
-btn.addEventListener("click", function (e) {
+let btnInsertarUsuarios = document.getElementById("enviarDatos");
+
+btnInsertarUsuarios.addEventListener("click", function (e) {
   e.preventDefault();
 
   let formulario = new FormData(document.getElementById("formUsuarios"));
@@ -14,8 +15,14 @@ btn.addEventListener("click", function (e) {
   })
     .then((Response) => Response.json())
     .then((data) => {
-      /*let table = document.getElementById("mitabla");
-      table.innerHTML = `<tr>
+
+      
+      //location.assign(URLROOT +"Usuarios"); // o
+      
+      let table = document.getElementById("mitabla");
+      
+      table.innerHTML = `
+      <tr>
         <th scope="col">ID</th>
         <th scope="col">PrimerNombre</th>
         <th scope="col">SegundoNombre</th>
@@ -26,8 +33,8 @@ btn.addEventListener("click", function (e) {
         <th scope="col">Usuario</th>
         <th scope="col">Password</th>
         <th scope="col">RolID</th>
-      </tr>`;*/
-      /*data.forEach((i) => {
+      </tr>`;
+      data.forEach((i) => {
         table.innerHTML += `<tr>
             <td>${i.idUsuarios}</td>
             <td>${i.Nombre1}</td>
@@ -39,7 +46,12 @@ btn.addEventListener("click", function (e) {
             <td>${i.Usuario}</td>
             <td>${i.Passwordd}</td>
             <td>${i.Roles_idRoles}</td>
+            <td><a href='${URLROOT}Usuarios/buscarUsuario/${i.idUsuarios}' class = 'btn btn-primary'>editar</a></td>
         </tr>`;
-      });*/
+        
+      });
     });
 });
+
+
+
