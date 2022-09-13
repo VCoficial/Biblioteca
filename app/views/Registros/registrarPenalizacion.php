@@ -16,7 +16,7 @@
 
             <form method="POST" action="<?php echo URLROOT; ?>Penalizaciones/insertarPenalizacion" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
 
-                <input name="" hidden type="text" value="<?php echo $data->idCliente ?>" >
+                <input name="idClienteEstado" hidden type="text" value="<?php echo $data->idCliente ?>">
 
                 <div class="form-group">
 

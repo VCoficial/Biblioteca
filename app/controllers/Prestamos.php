@@ -9,7 +9,7 @@ class Prestamos extends Controller
     public function index()
     {
         //$data = $this->pacienteModel->listar();
-        $data = [];
+        $data = $this->prestamos->traerPrestamos();
         $this->renderView('/secciones/prestamos', $data);
     }
 
@@ -48,15 +48,16 @@ class Prestamos extends Controller
                 'fechaInicioPrestamo' => $_POST['fechaInicioPrestamo'],
                 'fechaFinalPrestamo' => $_POST['fechaFinalPrestamo'],
                 'cantidadLibros' => $_POST['cantidadLibros'],
-                'idPrestador' => $_POST['idPrestador'],
+                'idPrestador' => $_POST['idPrestador']
             ];
 
+            /*echo "<pre>";
+            print_r($data);
+            echo "<pre>";*/
 
-            //var_dump($data);
+            $this->prestamos->insertarPrestamos($data);
 
-            $data = $this->prestamos->buscarClienteYLibro($data);
-
-            $this->renderView('/Registros/registrarPrestamos', $data);
+            $this->index();
         }
     }
 }
