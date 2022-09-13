@@ -46,8 +46,7 @@
 
                 <div class="d-flex justify-content-around ">
 
-                    <input value="Registrar Libro" type="submit" class="btn btn-primary"></input>
-                    <a class="btn btn-danger" href="<?php echo URLROOT; ?>Libros">Cancelar</a>
+                    
                 </div>
 
             </form><br><br>
