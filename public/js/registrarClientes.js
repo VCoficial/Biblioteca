@@ -1,11 +1,11 @@
 const URLROOT = "http://localhost/Biblioteca/";
 
-let btnActualizarUsuarios = document.getElementById("registrarLibro");
+let btnActualizarUsuarios = document.getElementById("registrarClientes");
 
 btnActualizarUsuarios.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let formulario = new FormData(document.getElementById("idFormInsertarLibro"));
+  let formulario = new FormData(document.getElementById("formClientesRegistrar"));
 
   console.log(...formulario);
 

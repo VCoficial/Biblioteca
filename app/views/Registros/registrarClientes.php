@@ -5,7 +5,7 @@
     <div class="row text-center ">
         <div class="col-md-12  ">
 
-            <form method="POST" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
+            <form id="formClientesRegistrar" method="POST" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
 
                 <div class="form-group">
 
@@ -47,7 +47,7 @@
 
                 <div class="d-flex justify-content-around ">
 
-                    <button value="Registar Cliente" type="submit" class="btn btn-primary w-50 ">Registrar Cliente</button>
+                    <button id="registrarClientes" value="Registar Cliente" type="submit" class="btn btn-primary w-50 ">Registrar Cliente</button>
                     <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Clientes">Cancelar</a>
                 </div>
 
