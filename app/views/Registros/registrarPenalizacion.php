@@ -14,7 +14,7 @@
             </form><br>
 
 
-            <form method="POST" action="<?php echo URLROOT; ?>Penalizaciones/insertarPenalizacion" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
+            <form id="formRegistrarPenalizaciones" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
 
                 <input name="idClienteEstado" hidden type="text" value="<?php echo $data->idCliente ?>">
 
@@ -49,8 +49,8 @@
 
                 <div class="d-flex justify-content-around ">
 
-                    <input value="Registar Prestamo" type="submit" class="btn btn-primary w-50 "></input>
-                    <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Penalizacion">Cancelar</a>
+                    <button id="registrarPrestamo" value="Registar Prestamo" type="submit" class="btn btn-primary w-50 ">Registrar Penalizacion</button>
+                    <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Penalizaciones">Cancelar</a>
                 </div>
 
 
@@ -59,5 +59,5 @@
         </div>
     </div>
 
-
+    <script src="<?php echo URLROOT ?>public/js/registrarPenalizaciones.js"></script>
     <?php require_once '../app/views/inc/footer.php'; ?>

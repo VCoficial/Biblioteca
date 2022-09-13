@@ -1,17 +1,17 @@
 const URLROOT = "http://localhost/Biblioteca/";
 
-let btnActualizarUsuarios = document.getElementById("registrarClientes");
+let btnActualizarUsuarios = document.getElementById("actualizarClientes");
 
 btnActualizarUsuarios.addEventListener("click", function (e) {
   e.preventDefault();
 
   let formulario = new FormData(
-    document.getElementById("formClientesRegistrar")
+    document.getElementById("formActualizarCliente")
   );
 
   console.log(...formulario);
 
-  fetch(URLROOT + "Clientes/insertarClientes", {
+  fetch(URLROOT + "Clientes/actualizarCliente", {
     method: "post",
     body: formulario,
   })
@@ -21,9 +21,9 @@ btnActualizarUsuarios.addEventListener("click", function (e) {
       Swal.fire({
         icon: "success",
         title: "Buen trabajo",
-        text: "Cliente registrado con exito",
-        footer: `<a class="btn btn-success" href='${URLROOT} Clientes '>Ver tabla</a>`,
+        text: "Cliente Actualizado con exito",
+        footer: `<a class="btn btn-success" href='${URLROOT}Clientes '>Ver tabla</a>`,
       });
-      //window.location.assign(URLROOT + "Libros");
+      //window.location.assign(URLROOT + "usuarios");
     });
 });

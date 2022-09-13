@@ -21,7 +21,7 @@ btnActualizarUsuarios.addEventListener("click", function (e) {
           icon: 'success',
           title: 'Buen trabajo',
           text: 'Libro registrado con exito',
-          footer: '<a class="btn btn-success" href="URLROOT Libros">Ver tabla</a>'
+          footer: `<a class="btn btn-success" href='${URLROOT}Libros '>Ver tabla</a>`
         })
         //window.location.assign(URLROOT + "Libros");
       

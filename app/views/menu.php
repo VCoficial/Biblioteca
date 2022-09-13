@@ -5,7 +5,7 @@ session_start();
 ?>
 
 <div class="container">
-    <br><br>
+    <br>
     <?php
     if ($_SESSION["rol"] == "Administrador") {
     ?>

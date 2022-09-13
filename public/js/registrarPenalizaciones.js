@@ -1,15 +1,15 @@
 const URLROOT = "http://localhost/Biblioteca/";
 
-let btnActualizarUsuarios = document.getElementById("registrarLibro");
+let btnActualizarUsuarios = document.getElementById("registrarPrestamo");
 
 btnActualizarUsuarios.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let formulario = new FormData(document.getElementById("idFormInsertarLibro"));
+  let formulario = new FormData(document.getElementById("formRegistrarPenalizaciones"));
 
   console.log(...formulario);
 
-  fetch(URLROOT + "Libros/InsertarLibro", {
+  fetch(URLROOT + "Penalizaciones/insertarPenalizacion", {
     method: "post",
     body: formulario,
   })
@@ -20,8 +20,8 @@ btnActualizarUsuarios.addEventListener("click", function (e) {
         Swal.fire({
           icon: 'success',
           title: 'Buen trabajo',
-          text: 'Libro registrado con exito',
-          footer: '<a class="btn btn-success" href="URLROOT Libros">Ver tabla</a>'
+          text: 'Penalizacion registrada con exito',
+          footer: `<a class="btn btn-success" href='${URLROOT} Penalizaciones '>Ver tabla</a>`
         })
         //window.location.assign(URLROOT + "Libros");
       

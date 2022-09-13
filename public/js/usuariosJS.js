@@ -15,12 +15,16 @@ btnInsertarUsuarios.addEventListener("click", function (e) {
   })
     .then((Response) => Response.json())
     .then((data) => {
-
-      
+      Swal.fire({
+        icon: "success",
+        title: "Buen trabajo",
+        text: "Penalizacion registrada con exito",
+        footer: `<a class="btn btn-success" href='${URLROOT} Penalizaciones '>Ver tabla</a>`,
+      });
       //location.assign(URLROOT +"Usuarios"); // o
-      
+
       let table = document.getElementById("mitabla");
-      
+
       table.innerHTML = `
       <tr>
         <th scope="col">ID</th>
@@ -48,10 +52,6 @@ btnInsertarUsuarios.addEventListener("click", function (e) {
             <td>${i.Roles_idRoles}</td>
             <td><a href='${URLROOT}Usuarios/buscarUsuario/${i.idUsuarios}' class = 'btn btn-primary'>editar</a></td>
         </tr>`;
-        
       });
     });
 });
-
-
-

@@ -8,7 +8,7 @@
         <div class="col-md-12  ">
 
             <br><br><br>
-            <form method="POST" action="<?php echo URLROOT;?>Clientes/actualizarCliente" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
+            <form method="POST" id="formActualizarCliente" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
                 <div class="form-group">
                     <input name="idCliente" hidden value="<?php echo $data->idCliente ?>" type="text">
                 </div>
@@ -55,7 +55,7 @@
 
                 <div class="d-flex justify-content-around ">
 
-                    <input value="Actualizar" type="submit" class="btn btn-primary"></input>
+                    <button id="actualizarClientes" value="Actualizar" type="submit" class="btn btn-primary">Actualizar Cliente</button>
 
                     <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Clientes">Cancelar</a>
                 </div>
@@ -67,5 +67,5 @@
     </div>
     <br><br><br>
 
-
+    <script src="<?php echo URLROOT ?>public/js/actualizarCliente.js"></script>
     <?php require_once '../app/views/inc/footer.php'; ?>

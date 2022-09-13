@@ -55,7 +55,7 @@ class Penalizaciones extends Controller
 
         $this->penalizaciones->insertarPenalizacion($data);
 
-        $this->index();
+        echo json_encode(true);
     }
 
     public function abrirActualizarPenalizaciones($id)
