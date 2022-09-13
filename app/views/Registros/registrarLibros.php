@@ -46,7 +46,7 @@
 
                 <div class="d-flex justify-content-around ">
 
-                    
+
                 </div>
 
             </form><br><br>
@@ -54,5 +54,3 @@
         </div>
     </div>
     <br>
-
-    <?php require_once '../app/views/inc/footer.php'; ?>
