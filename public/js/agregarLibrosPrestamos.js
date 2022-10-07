@@ -16,7 +16,9 @@ btnbuscarLibro1.addEventListener("click", function (e) {
   <td>${document.getElementById("idtraerCliente").text}<td>
   <td>${document.getElementById("fechaInicioPrestamo").value}<td>
   <td>${document.getElementById("fechaEntregaLibro").value}<td>
-  <td>${document.getElementById("cantidadLibros1").value}<td>`;
+  <td>${document.getElementById("cantidadLibros1").value}<td>
+  <td><button type="submit" class="btn btn-danger">Descartar</button><td>
+  `;
 
 
   //window.location.assign(URLROOT + "usuarios");
