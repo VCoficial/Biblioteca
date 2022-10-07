@@ -26,7 +26,6 @@ session_start(); ?>
                     </select><br>
                 </div>
 
-
                 <div class="form-group">
                     <label for="">Cliente</label>
                     <select readonly name="idNombreClientePrestamo" class="form-control" id="idCliente">
@@ -55,36 +54,28 @@ session_start(); ?>
                     <input readonly name="idPrestador" value="<?php echo $_SESSION['idPrestador'] ?>" type="text" class="form-control" id="idPrestador" placeholder="prestador"><br>
                 </div>
 
-
-
                 <button id="agregarLibrosPrestamos1" value="Registrar Prestamo" type="submit" class="btn btn-primary w-50 m-1  ">Agregar</button>
-
-
 
             </form>
 
         </div>
 
-
         <div class="col-md-6">
 
             <form method="post" id="insertarDatos">
 
-
-
-                <table id="mitablita" class="table table-dark table-hover   table-striped">
-
-                    <tr>
-                        <th scope="col">Libro</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">fechaInicioPrestamo</th>
-                        <th scope="col">fechaEmtrega</th>
-                        <th scope="col">cantidadLibros</th>
-                        <th scope="col">Prestador</th>
-
-                    </tr>
-
-                </table>
+                <div class="col-md-5 bg-dark table-responsive border border-1">
+                <br>
+            <table id="mitablita" class="table table-dark table-hover table-striped">
+                <tr>
+                    <th scope="col">Libro</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">fechaInicioPrestamo</th>
+                    <th scope="col">fechaEmtrega</th>
+                    <th scope="col">cantidadLibros</th>
+                    <th scope="col">Prestador</th>
+                </tr>
+            </table>
 
                 <button id="insertarDatos1" type="submit" class="btn btn-success">Insertar</button>
             </form>
