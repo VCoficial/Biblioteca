@@ -2,7 +2,7 @@
 
 class Clientes extends Controller
 {
-    
+
     public function __construct()
     {
         $this->clientes = $this->getModel('ClientesModel');
@@ -12,7 +12,7 @@ class Clientes extends Controller
     /** funcion principal para mostrar la vista de clientes
      * @return vista 
      * @param data
-     */  
+     */
     public function index()
     {
         $data = [];
@@ -20,7 +20,7 @@ class Clientes extends Controller
         $this->renderView('secciones/clientes', $data);
     }
 
-    
+
     /**
      * abrirRegistrarClientes
      * esta funcion abre la vista para poder registrar los clientes 
@@ -32,7 +32,7 @@ class Clientes extends Controller
         $data = [];
         $this->renderView('Registros/registrarClientes', $data);
     }
-    
+
     /**
      * insertarClientes
      *
@@ -55,7 +55,7 @@ class Clientes extends Controller
 
         $this->clientes->insertarCliente($data);
 
-        $this->index();
+        echo json_encode(true);
     }
 
 
@@ -102,15 +102,11 @@ class Clientes extends Controller
             'estado' => $_POST['estadoCliente']
         ];
 
-        
-            $this->clientes->actualizarClientes($this->data);
-            $this->index();
+
+        $this->clientes->actualizarClientes($this->data);
+        echo json_encode(true);
         /*echo "<pre>";
         print_r($this->data);
         echo "<pre>";*/
-
-
-        
-        
     }
 }

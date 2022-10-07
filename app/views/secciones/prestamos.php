@@ -23,9 +23,32 @@
                     <th scope="col">idCliente</th>
                     <th scope="col">FechaInicioPrestamo</th>
                     <th scope="col">FechaEntregaLibro</th>
+                    <th scope="col">cantidadLibros</th>
                     <th scope="col">Prestador</th>
 
                 </tr>
+
+                <?php foreach ($data as $recorrer) :   ?>
+
+                    <tr>
+
+                        <td><?php echo $recorrer->idPrestamo; ?></td>
+                        <td><?php echo $recorrer->Libros_idLibro; ?></td>
+                        <td><?php echo $recorrer->Clientes_idCliente; ?></td>
+                        <td><?php echo $recorrer->FechaInicio; ?></td>
+                        <td><?php echo $recorrer->FechaEntrega; ?></td>
+                        <td><?php echo $recorrer->cantidadLibros; ?></td>
+                        <td><?php echo $recorrer->Prestador; ?></td>
+
+                        <td>
+                            <a class="btn btn-primary" href="">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+
+                <?php endforeach ?>
+
 
             </table>
         </div>

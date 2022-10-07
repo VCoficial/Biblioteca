@@ -40,8 +40,7 @@ class Libros extends Controller
         ];
 
         $this->libros->InsertarLibro($this->data);
-        $this->index();
-        
+        echo json_encode(true);
     }
 
     public function buscarLibro()
@@ -55,8 +54,10 @@ class Libros extends Controller
 
             $this->data = $this->libros->buscarLibro($this->data);
             $this->renderView('secciones/libros', $this->data);
+            //echo json_encode($this->data);
         } else {
             $this->index();
+            //echo json_encode($this->data);
         }
 
 
@@ -109,7 +110,7 @@ class Libros extends Controller
 
 
         $this->libros->ActualizarLibro($this->data);
-        $this->index();
+        echo json_encode(true);
     }
 
     public function eliminarLibro($id)
@@ -140,5 +141,4 @@ class Libros extends Controller
         // renderisamos la vista
         $this->renderView('reportes/rptLibro', $this->data);
     }
-
 }

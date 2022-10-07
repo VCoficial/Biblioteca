@@ -5,7 +5,7 @@
 
     <div class="row text-center ">
         <div class="col-md-12  ">
-            <form method="POST" action="<?php echo URLROOT; ?>Libros/InsertarLibro" class="text-white  bg-dark p-3 border border-1 rounded w-50 mx-auto ">
+            <form method="POST" id="idFormInsertarLibro" class="text-white  bg-dark p-3 border border-1 rounded w-50 mx-auto ">
                 <div class="form-group">
                     <label for="">Ingrese el nombre del libro</label>
                     <input name="nombreLibro" type="text" class="form-control" id="nombreLibro" placeholder="Nombre del libro" required> <br>
@@ -46,11 +46,9 @@
 
                 <div class="d-flex justify-content-around ">
 
-
                 </div>
 
             </form><br><br>
 
         </div>
     </div>
-    <br>

@@ -5,7 +5,7 @@
     <div class="row text-center ">
         <div class="col-md-12  ">
             <br>
-            <form method="POST" action="<?php echo URLROOT; ?>Usuarios/ActualizarUsuario " id="formUsuarios" class="text-white bg-dark p-3 border border-1 rounded  w-25 mx-auto ">
+            <form method="POST" id="formUsuariosEditar" class="text-white bg-dark p-3 border border-1 rounded  w-25 mx-auto ">
                 <div class="form-group">
 
                     <input hidden value="<?php echo $data->idUsuarios ?>" type="text" class="form-control" name="id" placeholder="Ingrese su primer nombre" required> <br>
@@ -57,7 +57,7 @@
                     </select>
                 </div>
                 <br>
-                <input id="enviarDatos" value="Actualizar" type="submit" class="btn btn-primary w-50 "></input>
+                <button id="btnActualizarUsuarios" id="enviarDatos" type="submit" class="btn btn-primary w-50 ">Actualizar</button>
             </form>
         </div>
     </div>
@@ -67,7 +67,7 @@
 
 
 
-
+<script src="<?php echo URLROOT ?>public/js/usuariosActualizar.js"></script>
 
 
 <?php require_once APPROOT . "/views/inc/footer.php"; ?>

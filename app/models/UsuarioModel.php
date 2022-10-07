@@ -21,22 +21,23 @@ class UsuarioModel
     }
 
     //Funcion de insertar nuevos Usuarios
-    public function InsertarUsuarios()
+    public function InsertarUsuarios($data)
     {
 
-        $Nombre1 = $_POST["nombre1"];
-        $Nombre2 = $_POST["nombre2"];
-        $Apellido1 = $_POST["Apellido1"];
-        $Apellido2 = $_POST["Apellido2"];
-        $Telefono = $_POST["telefonoUsuario"];
-        $Correo = $_POST["correoUsuario"];
-        $Usuario = $_POST["usuario"];
-        $password = $_POST["password"];
-        $roles = $_POST["rol"];
-
-        $this->db->query("INSERT INTO `usuarios`
+    
+        $valor = $this->db->query("INSERT INTO `usuarios`
         (`Nombre1`, `Nombre2`, `Apellido1`, `Apellido2`, `Telefono`, `correo`, `Usuario`, `Passwordd`, `Roles_idRoles`) VALUES
-        ('$Nombre1','$Nombre2','$Apellido1',' $Apellido2','$Telefono','$Correo','$Usuario','$password', $roles)");
+        (:Nombre1 , :Nombre2 , :Apellido1 , :Apellido2 , :Telefono , :Correo , :Usuario , :pass , :roles)");
+
+        $valor->bindParam(':Nombre1', $data['Nombre1'], pdo::PARAM_STR);
+        $valor->bindParam(':Nombre2', $data['Nombre2'], pdo::PARAM_STR);
+        $valor->bindParam(':Apellido1', $data['Apellido1'], pdo::PARAM_STR);
+        $valor->bindParam(':Apellido2', $data['Apellido2'], pdo::PARAM_STR);
+        $valor->bindParam(':Telefono', $data['Telefono'], pdo::PARAM_STR);
+        $valor->bindParam(':Correo', $data['Correo'], pdo::PARAM_STR);
+        $valor->bindParam(':Usuario', $data['Usuario'], pdo::PARAM_STR);
+        $valor->bindParam(':pass', $data['password'], pdo::PARAM_STR);
+        $valor->bindParam(':roles', $data['roles'], pdo::PARAM_INT);
 
         $resultSet = $this->db->execute();
     }
