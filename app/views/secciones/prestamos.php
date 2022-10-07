@@ -6,7 +6,7 @@
 
     <div class="row text-center ">
 
-        <div class="col-md-12 bg-dark mx-auto w-50  table-responsive border border-1 rounded table-responsive"><br>
+        <div class="col-md-12 bg-dark mx-auto w-50  table-responsive border border-1 rounded    table-responsive"><br>
 
             <div class="justify-content-around d-flex  ">
                 <a class="btn btn-success w-25 " href="<?php echo URLROOT; ?>Prestamos/abrirRegistrarPrestamos">Registrar Prestamos</a>
@@ -15,7 +15,7 @@
 
 
             <br>
-            <table class="table table-dark table-hover table-striped">
+            <table class="table table-dark table-hover  table-striped">
 
                 <tr>
                     <th scope="col">idPrestamo</th>
