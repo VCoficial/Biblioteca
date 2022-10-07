@@ -43,21 +43,21 @@ class Prestamos extends Controller
 
             $data = [
 
-                'idLibroPrestamo' => $_POST['idLibroPrestamo'],
-                'idNombreClientePrestamo' => $_POST['idNombreClientePrestamo'],
-                'fechaInicioPrestamo' => $_POST['fechaInicioPrestamo'],
-                'fechaFinalPrestamo' => $_POST['fechaFinalPrestamo'],
-                'cantidadLibros' => $_POST['cantidadLibros'],
-                'idPrestador' => $_POST['idPrestador']
+                'idLibroPrestamo' => $_POST['idLibroInsertar'],
+                'idClientePrestamo' => $_POST['idClienteInsertar'],
+                'nomLibroInsertar' => $_POST['nomLibroInsertar'],
+                'nomClienteInsertar' => $_POST['nomClienteInsertar'],
+                'fechaInicioPrestamo' => $_POST['fechaInicioInsertar'],
+                'fechaFinalPrestamo' => $_POST['fechaFinInsertar'],
+                'cantidadLibros' => $_POST['cantidadInsertar'],
+                'idPrestador' => $_POST['prestadorInsertar']
             ];
 
-            /*echo "<pre>";
-            print_r($data);
-            echo "<pre>";*/
+            echo json_encode($data);
 
-            $this->prestamos->insertarPrestamos($data);
+            //$this->prestamos->insertarPrestamos($data);
 
-            $this->index();
+            //$this->index();
         }
     }
 }

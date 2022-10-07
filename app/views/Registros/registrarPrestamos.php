@@ -6,7 +6,7 @@ session_start(); ?>
 <div class="container-fluid  ">
 
     <div class="row text-center ">
-        <div class="col-md-6 ">
+        <div class="col-md-4 ">
 
             <form method="POST" class=" border border-1 rounded bg-dark p-3 mx-auto w-50" id="formBuscarLibroYCliente">
 
@@ -35,7 +35,7 @@ session_start(); ?>
                 <br>
                 <div class="form-group">
                     <label for="">Fecha de InicioPrestamo</label>
-                    <input name="fechaInicioPrestamo" type="date" class="form-control" id="fechaInicioPrestamo" placeholder="Fecha de ingreso"><br>
+                    <input  name="fechaInicioPrestamo" type="date" class="form-control" id="fechaInicioPrestamo" placeholder="Fecha de ingreso"><br>
                 </div>
 
                 <div class="form-group">
@@ -60,22 +60,23 @@ session_start(); ?>
 
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-8 bg-dark table-responsive border border-1">
 
             <form method="post" id="insertarDatos">
 
-                <div class="col-md-5 bg-dark table-responsive border border-1">
+
+
                 <br>
-            <table id="mitablita" class="table table-dark table-hover table-striped">
-                <tr>
-                    <th scope="col">Libro</th>
-                    <th scope="col">Cliente</th>
-                    <th scope="col">fechaInicioPrestamo</th>
-                    <th scope="col">fechaEmtrega</th>
-                    <th scope="col">cantidadLibros</th>
-                    <th scope="col">Prestador</th>
-                </tr>
-            </table>
+                <table id="mitablita" class="table   table-dark ">
+                    <tr>
+                        <th scope="col">Libro</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">fechaInicioPrestamo</th>
+                        <th scope="col">fechaEmtrega</th>
+                        <th scope="col">cantidadLibros</th>
+                        <th scope="col">Prestador</th>
+                    </tr>
+                </table>
 
                 <button id="insertarDatos1" type="submit" class="btn btn-success">Insertar</button>
             </form>
