@@ -32,7 +32,7 @@ class Prestamos extends Controller
 
             $data = $this->prestamos->buscarClienteYLibro($data);
 
-            $this->renderView('/Registros/registrarPrestamos', $data);
+            echo json_encode($data);
         }
     }
 
