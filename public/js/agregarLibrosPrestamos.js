@@ -1,5 +1,7 @@
 let btnbuscarLibro1 = document.getElementById("agregarLibrosPrestamos1");
 
+let btninsertar = document.getElementById("insertarDatos1");
+
 btnbuscarLibro1.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -18,5 +20,15 @@ btnbuscarLibro1.addEventListener("click", function (e) {
   <td><button type="submit" class="btn btn-danger">Descartar</button><td>
   `;
 
+
   //window.location.assign(URLROOT + "usuarios");
+});
+
+btninsertar.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    let formulario = new FormData(document.getElementById("formAgregarLibro"));
+
+    console.log(...formulario);
+
 });

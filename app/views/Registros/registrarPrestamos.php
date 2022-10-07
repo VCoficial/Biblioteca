@@ -2,6 +2,7 @@
 session_start(); ?>
 
 <br>
+
 <div class="container-fluid  ">
 
     <div class="row text-center ">
@@ -59,9 +60,12 @@ session_start(); ?>
 
         </div>
 
+        <div class="col-md-6">
 
-        <div class="col-md-5 bg-dark table-responsive border border-1">
-<br>
+            <form method="post" id="insertarDatos">
+
+                <div class="col-md-5 bg-dark table-responsive border border-1">
+                <br>
             <table id="mitablita" class="table table-dark table-hover table-striped">
                 <tr>
                     <th scope="col">Libro</th>
@@ -73,6 +77,8 @@ session_start(); ?>
                 </tr>
             </table>
 
+                <button id="insertarDatos1" type="submit" class="btn btn-success">Insertar</button>
+            </form>
         </div>
 
     </div>
