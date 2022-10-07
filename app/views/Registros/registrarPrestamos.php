@@ -6,7 +6,9 @@ session_start(); ?>
 <div class="container-fluid  ">
 
     <div class="row text-center ">
+
         <div class="col-md-4 ">
+
 
             <form method="POST" class=" border border-1 rounded bg-dark p-3 mx-auto w-50" id="formBuscarLibroYCliente">
 
@@ -60,6 +62,7 @@ session_start(); ?>
 
         </div>
 
+
         <div class="col-md-8 bg-dark table-responsive border border-1">
 
             <form method="post" id="insertarDatos">
@@ -77,6 +80,7 @@ session_start(); ?>
                         <th scope="col">Prestador</th>
                     </tr>
                 </table>
+
 
                 <button id="insertarDatos1" type="submit" class="btn btn-success">Insertar</button>
             </form>
