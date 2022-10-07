@@ -28,7 +28,15 @@
 
 <nav class="navbar navbar-expand-lg text-white navbar-dark">
     <div class="container-fluid mt-3  ">
-      <a class="navbar-brand text-white" href="<?php echo URLROOT; ?> Menu ">BIENVENIDO</a>
+
+    <?php
+    if ($_SERVER["REQUEST_URI"]=="/Biblioteca/%20Menu"){
+    ?>
+    <b><a img src="<?php echo URLROOT; ?>img/welcome.png" class="navbar-brand text-white" href="<?php echo URLROOT; ?> Menu ">Welcome</a></b>
+    <?php } else { ?>
+    <b><a img src="<?php echo URLROOT; ?>img/welcome.png" class="navbar-brand text-white" href="<?php echo URLROOT; ?> Menu ">Hola</a></b>
+    <?php }?>
+
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
