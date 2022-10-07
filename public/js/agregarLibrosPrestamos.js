@@ -18,15 +18,24 @@ btnbuscarLibro1.addEventListener("click", function (e) {
   <td>${document.getElementById("fechaEntregaLibro").value}<td>
   <td>${document.getElementById("cantidadLibros1").value}<td>`;
 
-
   //window.location.assign(URLROOT + "usuarios");
 });
 
 btninsertar.addEventListener("click", function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    let formulario = new FormData(document.getElementById("formAgregarLibro"));
+  let formulario = new FormData(document.getElementById("formAgregarLibro"));
 
-    console.log(...formulario);
+  console.log(...formulario);
 
+  fetch(URLROOT + "Prestamos/insertarPrestamos", {
+    method: "post",
+    body: formulario,
+  })
+    .then((Response) => Response.json())
+    .then((data) => {
+      console.log(data);
+
+      //window.location.assign(URLROOT + "usuarios");
+    });
 });
