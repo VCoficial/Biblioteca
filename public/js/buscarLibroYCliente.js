@@ -15,7 +15,7 @@ btnbuscarLibro.addEventListener("click", function (e) {
   })
     .then((Response) => Response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
 
       document.getElementById("idtraerLibro").text = data.Nombre;
       document.getElementById("idtraerLibro").value = data.idLibro;
