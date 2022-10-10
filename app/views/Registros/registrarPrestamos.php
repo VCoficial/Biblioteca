@@ -37,7 +37,7 @@ session_start(); ?>
                 <br>
                 <div class="form-group">
                     <label for="">Fecha de InicioPrestamo</label>
-                    <input  name="fechaInicioPrestamo" type="date" class="form-control" id="fechaInicioPrestamo" placeholder="Fecha de ingreso"><br>
+                    <input name="fechaInicioPrestamo" type="date" class="form-control" id="fechaInicioPrestamo" placeholder="Fecha de ingreso"><br>
                 </div>
 
                 <div class="form-group">
@@ -72,6 +72,7 @@ session_start(); ?>
                 <br>
                 <table id="mitablita" class="table   table-dark ">
                     <tr>
+                        <th scope="col">item</th>
                         <th scope="col">Libro</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">fechaInicioPrestamo</th>

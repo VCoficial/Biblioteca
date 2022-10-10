@@ -41,7 +41,7 @@ class Prestamos extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-            $data = [
+            $data =  [
 
                 'idLibroPrestamo' => $_POST['idLibroInsertar'],
                 'idClientePrestamo' => $_POST['idClienteInsertar'],
@@ -50,12 +50,24 @@ class Prestamos extends Controller
                 'fechaInicioPrestamo' => $_POST['fechaInicioInsertar'],
                 'fechaFinalPrestamo' => $_POST['fechaFinInsertar'],
                 'cantidadLibros' => $_POST['cantidadInsertar'],
-                'idPrestador' => $_POST['prestadorInsertar']
+                'idPrestador' => $_POST['prestadorInsertar'],
+                'idItem' =>  $_POST['iditem']
             ];
 
-            echo json_encode($data);
 
-            //$this->prestamos->insertarPrestamos($data);
+
+            $resultado = $this->prestamos->insertarPrestamos($data);
+            if ($resultado) {
+                $numeroIdPrestamo = $this->prestamos->getLast();
+                $respuesta = $this->prestamos->insertarDetallePrestamo($data, $numeroIdPrestamo);
+            }
+
+            if ($respuesta) {
+                echo json_encode("Exito: se inserto");
+            } else {
+                echo json_encode("error:no se pudo insertar el registro");
+            }
+
 
             //$this->index();
         }
