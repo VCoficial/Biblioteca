@@ -38,20 +38,55 @@ class PrestamosModel
     {
         try {
             $valor = $this->db->query("INSERT INTO prestamos
-            (`Libros_idLibro`, `Clientes_idCliente`, `FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`) VALUES 
-            (:idLibroPrestamo,:idNombreClientePrestamo,:fechaInicioPrestamo,:fechaFinalPrestamo,:cantidadLibros,:idPrestador)");
+            (`FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`) VALUES 
+            (:fechaInicioPrestamo,:fechaFinalPrestamo,:cantidadLibros,:idPrestador)");
 
-
-            $valor->bindParam(':idLibroPrestamo', $data['idLibroPrestamo'], pdo::PARAM_INT);
-            $valor->bindValue(':idNombreClientePrestamo', $data['idNombreClientePrestamo'], pdo::PARAM_INT);
             $valor->bindValue(':fechaInicioPrestamo', $data['fechaInicioPrestamo'], pdo::PARAM_STR);
             $valor->bindValue(':fechaFinalPrestamo', $data['fechaFinalPrestamo'], pdo::PARAM_STR);
             $valor->bindValue(':cantidadLibros', $data['cantidadLibros'], pdo::PARAM_INT);
             $valor->bindValue(':idPrestador', $data['idPrestador'], pdo::PARAM_INT);
 
-            $this->db->execute();
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (Exception  $e) {
             echo "error en " . $e->getMessage() . "en la linea " . $e->getLine();
         }
+    }
+
+    public function insertarDetallePrestamo($data, $num)
+    {
+
+        try {
+            $numeroFilas = 0;
+            while ($numeroFilas < count((array) $data['idItem'])) {
+
+                $valor = $this->db->query("INSERT INTO detalleprestamo
+                (`idLibro`, `idCliente`, `idPrestamo`) VALUES
+                (:idLibro,:idCliente,:idPrestamo)");
+
+                $valor->bindValue(':idLibro', $data['idLibroPrestamo'][$numeroFilas], pdo::PARAM_INT);
+                $valor->bindValue(':idCliente', $data['idClientePrestamo'][$numeroFilas], pdo::PARAM_INT);
+                $valor->bindValue(':idPrestamo', $num, pdo::PARAM_INT);
+                $resulset = $this->db->execute();
+                $numeroFilas = $numeroFilas + 1;
+            }
+
+            if ($resulset == true) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception  $e) {
+            echo "error en " . $e->getMessage() . "en la linea " . $e->getLine();
+        }
+    }
+
+    public function getLast()
+    {
+        $ultimo = $this->db->lastInsertId();
+        return $ultimo;
     }
 }

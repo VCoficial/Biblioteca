@@ -1,6 +1,7 @@
 let btnbuscarLibro1 = document.getElementById("agregarLibrosPrestamos1");
 
 let btninsertar = document.getElementById("insertarDatos1");
+let incrementarItem = 1;
 
 btnbuscarLibro1.addEventListener("click", function (e) {
   e.preventDefault();
@@ -13,6 +14,7 @@ btnbuscarLibro1.addEventListener("click", function (e) {
 
   mitablita.innerHTML += `
 
+  
   <input readonly  class="form-control" name="idLibroInsertar" id="idLibroInsertar" value="${
     document.getElementById("idtraerLibro").value
   }" type="hidden">
@@ -20,6 +22,11 @@ btnbuscarLibro1.addEventListener("click", function (e) {
   <input readonly  class="form-control" name="idClienteInsertar" id="idClienteInsertar" value="${
     document.getElementById("idtraerCliente").value
   }" type="hidden">
+
+  
+  <td> 
+    <input readonly class="form-control" name="iditem" id="iditem" value="${incrementarItem}" type="number">
+  <td>
 
   <td> 
     <input readonly class="form-control" name="nomLibroInsertar" id="nomLibroInsertar" value="${
@@ -51,6 +58,7 @@ btnbuscarLibro1.addEventListener("click", function (e) {
   `;
 
   //window.location.assign(URLROOT + "usuarios");
+  incrementarItem++;
 });
 
 btninsertar.addEventListener("click", function (e) {
