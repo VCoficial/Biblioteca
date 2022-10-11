@@ -45,10 +45,12 @@
                 </div>
 
                 <div class="d-flex justify-content-around ">
-
+                    <button id="registrarLibro" type="submit" class="btn btn-primary">Registrar Libro</button>
                 </div>
 
             </form><br><br>
 
         </div>
     </div>
+    <script src="<?php echo URLROOT ?>public/js/registrarLibro.js"></script>
+    <?php require_once '../app/views/inc/footer.php'; ?>

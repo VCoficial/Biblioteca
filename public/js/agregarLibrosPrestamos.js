@@ -74,7 +74,13 @@ btninsertar.addEventListener("click", function (e) {
   })
     .then((Response) => Response.json())
     .then((data) => {
-      console.log(data);
+      Swal.fire({
+        icon: 'success',
+        title: data,
+        text: 'Prestamo registrado con exito',
+        footer: `<a class="btn btn-success" href='${URLROOT}Libros '>Ver tabla</a>`
+      })
+      
 
       //window.location.assign(URLROOT + "usuarios");
     });

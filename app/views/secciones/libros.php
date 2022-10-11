@@ -48,7 +48,6 @@
                         <?php } ?>
 
 
-                        <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Libros/eliminarLibro/<?php echo $recorrer->idLibro ?>">Borrar</a></td>
 
                     </tr>
 

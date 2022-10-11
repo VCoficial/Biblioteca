@@ -65,7 +65,7 @@ class Prestamos extends Controller
             }
 
             if ($respuesta) {
-                echo json_encode("Exito: se inserto");
+                echo json_encode("Exito");
             } else {
                 echo json_encode("error:no se pudo insertar el registro");
             }

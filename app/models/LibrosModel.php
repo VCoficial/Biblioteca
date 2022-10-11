@@ -29,9 +29,11 @@ class LibrosModel
     public function insertarEditorial($data)
     {
 
-        $valor = $this->db->query("INSERT INTO editoriales (NombreEditorial) VALUES (:Nombre)");
+        $numero = 1;
+        $valor = $this->db->query("INSERT INTO editoriales (NombreEditorial,Estado) VALUES (:Nombre,:Estado)");
 
         $valor->bindParam(':Nombre', $data['nomEditorial'], pdo::PARAM_STR);
+        $valor->bindParam(':Estado', $numero, pdo::PARAM_INT);
 
 
         $this->db->execute();

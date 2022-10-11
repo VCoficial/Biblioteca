@@ -36,6 +36,7 @@ class Penalizaciones extends Controller
 
         $data = $this->penalizaciones->traerDatosPrestamo($data);
 
+        
         $this->renderView('Registros/registrarPenalizacion', $data);
     }
 

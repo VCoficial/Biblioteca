@@ -37,14 +37,17 @@ class PrestamosModel
     public function insertarPrestamos($data)
     {
         try {
-            $valor = $this->db->query("INSERT INTO prestamos
-            (`FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`) VALUES 
-            (:fechaInicioPrestamo,:fechaFinalPrestamo,:cantidadLibros,:idPrestador)");
+            $valor = $this->db->query(
+            "INSERT INTO prestamos
+            (`FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`,`idDetalle`,`Clientes_idCliente`) VALUES 
+            (:fechaInicioPrestamo,:fechaFinalPrestamo,:cantidadLibros,:idPrestador,:idDetalle,:idCliente)");
 
             $valor->bindValue(':fechaInicioPrestamo', $data['fechaInicioPrestamo'], pdo::PARAM_STR);
             $valor->bindValue(':fechaFinalPrestamo', $data['fechaFinalPrestamo'], pdo::PARAM_STR);
             $valor->bindValue(':cantidadLibros', $data['cantidadLibros'], pdo::PARAM_INT);
             $valor->bindValue(':idPrestador', $data['idPrestador'], pdo::PARAM_INT);
+            $valor->bindValue(':idDetalle', 0, pdo::PARAM_INT);
+            $valor->bindValue(':idCliente', $data['idClientePrestamo'], pdo::PARAM_INT);
 
             if ($this->db->execute()) {
                 return true;
