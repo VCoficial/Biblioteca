@@ -60,6 +60,8 @@ class Prestamos extends Controller
             if ($resultado) {
                 $numeroIdPrestamo = $this->prestamos->getLast();
                 $respuesta = $this->prestamos->insertarDetallePrestamo($data, $numeroIdPrestamo);
+                $numeroIdPrestamoDetalle = $this->prestamos->getLast();
+                $this->prestamos->prestamosUpdate($numeroIdPrestamoDetalle,$numeroIdPrestamo);
             }
 
             if ($respuesta) {

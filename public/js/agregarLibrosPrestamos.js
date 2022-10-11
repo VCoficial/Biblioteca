@@ -25,7 +25,7 @@ btnbuscarLibro1.addEventListener("click", function (e) {
 
   
   <td> 
-    <input readonly class="form-control" name="iditem" id="iditem" value="${incrementarItem}" type="number">
+    <input  class="form-control" name="iditem" id="iditem" value="${incrementarItem}" type="number">
   <td>
 
   <td> 
