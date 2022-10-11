@@ -28,7 +28,7 @@
     <div class="container-fluid mt-3">
 
     <?php
-    if ($_SERVER["REQUEST_URI"]=="/Biblioteca/%20Menu"){
+    if ($_SERVER["REQUEST_URI"]=="/Biblioteca/%20Menu" || $_SERVER["REQUEST_URI"]=="/Biblioteca/Menu/abrirMenu"){
     ?>
     <b><a class="navbar-brand text-white m-3" href="<?php echo URLROOT; ?> Menu ">Welcome</a></b>
     <?php } else { ?>
