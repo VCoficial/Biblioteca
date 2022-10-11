@@ -2,9 +2,9 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2022 a las 04:03:46
--- Versión del servidor: 10.4.24-MariaDB
+-- Servidor: localhost:3306
+-- Tiempo de generación: 11-10-2022 a las 15:30:08
+-- Versión del servidor: 5.7.33
 -- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -55,8 +55,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idCliente`, `Identificacion`, `Nombre1`, `Nombre2`, `Apellido1`, `Apellido2`, `Telefono`, `Correo`, `Estado`, `vecesPenalizado`) VALUES
-(1, 11000, 'Mario', 'andres', 'ocampo', 'castaneda', '3207897958', 'andres@gmail.com', 2, 10),
-(3, 1006334975, 'alejandro', NULL, 'morales', 'loaiza', '3002082778', 'alejandro@gmail.com', 2, 1),
+(1, 11000, 'Mario', 'andres', 'ocampo', 'castaneda', '3207897958', 'andres@gmail.com', 0, 10),
+(3, 1006334975, 'alejandro', NULL, 'morales', 'loaiza', '3002082778', 'alejandro@gmail.com', 2, 4),
 (9, 1006332541, 'maria', 'angela', 'hernandez', 'sanchez', '2001452211', 'maria@gmail.com', 1, 0),
 (10, 1005474411, 'camila', 'maria', 'lozano', 'loaiza', '2005475522', 'camila@gmail.com', 1, 0),
 (11, 1005242514, 'andrea', 'camila', 'escobar', 'trujillo', '32321654', 'camila@gmail.com', 0, 0);
@@ -79,7 +79,17 @@ CREATE TABLE `detalleprestamo` (
 --
 
 INSERT INTO `detalleprestamo` (`idDetallePrestamo`, `idLibro`, `idCliente`, `idPrestamo`) VALUES
-(7, 2, 3, 23);
+(8, 1, 3, 24),
+(11, 1, 3, 27),
+(12, 1, 3, 28),
+(13, 1, 3, 29),
+(16, 1, 3, 34),
+(17, 1, 3, 35),
+(7, 2, 3, 23),
+(10, 2, 3, 26),
+(14, 2, 3, 30),
+(9, 6, 3, 25),
+(15, 6, 3, 31);
 
 -- --------------------------------------------------------
 
@@ -98,13 +108,14 @@ CREATE TABLE `editoriales` (
 --
 
 INSERT INTO `editoriales` (`idEditoriales`, `NombreEditorial`, `Estado`) VALUES
-(1, 'megalibro', 1),
+(1, 'megalibro', 0),
 (2, 'aguaAzul', 0),
 (3, 'colombia', 0),
 (4, 'colombo', 1),
 (16, 'maicol', 0),
 (17, 'ellibro', 0),
-(18, 'wdefff', 1);
+(18, 'wdefff', 1),
+(19, 'aaa', 1);
 
 -- --------------------------------------------------------
 
@@ -128,14 +139,17 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`idLibro`, `Nombre`, `Editoriales_idEditoriales`, `fechaDeIngreso`, `Autor`, `FechaPublicacion`, `Cantidad`, `Estado`) VALUES
-(1, 'Don Quijote de la Mancha', 1, '2022-08-03', 'Miguel de Cervantes', '2022-08-03', 5, 1),
+(1, 'Don Quijote de la Manchaaaa', 1, '2022-08-03', 'Miguel de Cervantes', '2022-08-03', 5, 0),
 (2, 'pinochoo', 2, '2022-08-07', 'pepe', '2022-08-22', 10, 1),
 (3, 'los siete enanitoss', 2, '2022-08-01', 'pepito', '2022-08-21', 50, 1),
 (6, 'ballena', 4, '2022-08-01', 'andres', '2022-08-12', 2, 1),
 (7, 'años de soledadddd', 4, '2022-09-15', 'jose hernandez', '2022-09-08', 5, 1),
 (14, 'don gatoo', 2, '0000-00-00', 'juanes', '0000-00-00', 24, 1),
 (15, 'don perro', 4, '0000-00-00', 'bendes', '0000-00-00', 2, 1),
-(16, 'gallinassss', 17, '2022-09-15', 'jose hernandez', '0000-00-00', 5, 1);
+(16, 'gallinassss', 17, '2022-09-15', 'jose hernandez', '0000-00-00', 5, 1),
+(17, 'aaaaaa', 1, '2022-10-05', 'aaaaa', '2022-10-14', 2, 1),
+(18, 'fttfu', 2, '2022-10-11', 'fghgh', '2022-10-21', 4, 1),
+(19, 'peop', 4, '2022-10-11', 'aaaaaaaa', '2022-10-21', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -161,7 +175,10 @@ INSERT INTO `penalizacion` (`idPenalizacion`, `inicioPenalizacion`, `finPenaliza
 (17, '2022-08-18', '2022-08-31', 1, 2),
 (18, '2022-08-18', '2022-08-31', 1, 2),
 (19, '2022-08-24', '2022-08-31', 1, 2),
-(20, '2022-08-18', '2022-08-25', 1, 2);
+(20, '2022-08-18', '2022-08-25', 1, 2),
+(21, '2022-10-11', '2022-10-31', 29, 2),
+(22, '2022-10-11', '2022-10-20', 29, 2),
+(23, '2022-10-11', '2022-10-31', 29, 2);
 
 -- --------------------------------------------------------
 
@@ -175,23 +192,35 @@ CREATE TABLE `prestamos` (
   `FechaEntrega` date NOT NULL,
   `cantidadLibros` int(11) NOT NULL,
   `Prestador` int(11) NOT NULL,
-  `idDetalle` int(11) NOT NULL
+  `idDetalle` int(11) NOT NULL,
+  `Clientes_idCliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `prestamos`
 --
 
-INSERT INTO `prestamos` (`idPrestamo`, `FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`, `idDetalle`) VALUES
-(1, '2022-08-03', '2022-08-11', 0, 3, 0),
-(2, '2022-08-16', '2022-08-28', 2, 2, 0),
-(3, '2022-09-09', '2022-09-15', 2, 2, 0),
-(4, '2022-10-02', '2022-10-19', 2, 2, 0),
-(19, '2022-10-10', '2022-10-04', 2, 2, 0),
-(20, '2022-10-10', '2022-10-19', 3, 2, 0),
-(21, '2022-10-10', '2022-10-19', 3, 2, 0),
-(22, '2022-10-10', '2022-10-14', 2, 2, 0),
-(23, '2022-10-02', '2022-10-19', 2, 2, 7);
+INSERT INTO `prestamos` (`idPrestamo`, `FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`, `idDetalle`, `Clientes_idCliente`) VALUES
+(1, '2022-08-03', '2022-08-11', 0, 3, 0, 0),
+(2, '2022-08-16', '2022-08-28', 2, 2, 0, 0),
+(3, '2022-09-09', '2022-09-15', 2, 2, 0, 0),
+(4, '2022-10-02', '2022-10-19', 2, 2, 0, 0),
+(19, '2022-10-10', '2022-10-04', 2, 2, 0, 0),
+(20, '2022-10-10', '2022-10-19', 3, 2, 0, 0),
+(21, '2022-10-10', '2022-10-19', 3, 2, 0, 0),
+(23, '2022-10-02', '2022-10-19', 2, 2, 7, 0),
+(24, '2022-10-03', '2022-10-20', 2, 2, 8, 0),
+(25, '2022-10-10', '2022-10-27', 2, 2, 9, 0),
+(26, '2022-10-03', '2022-10-26', 2, 2, 10, 0),
+(27, '2022-10-10', '2022-10-27', 2, 2, 11, 0),
+(28, '2022-10-20', '2022-10-20', 5, 2, 12, 0),
+(29, '2022-10-10', '2022-10-27', 2, 2, 13, 3),
+(30, '2022-10-11', '2022-10-13', 1, 2, 14, 3),
+(31, '2022-10-10', '2022-10-26', 1, 2, 15, 3),
+(32, '2022-10-11', '2022-11-04', 1, 2, 32, 3),
+(33, '2022-10-11', '2022-11-04', 1, 2, 33, 3),
+(34, '2022-10-11', '2022-10-26', 1, 2, 16, 3),
+(35, '2022-10-11', '2022-10-31', 1, 2, 17, 3);
 
 -- --------------------------------------------------------
 
@@ -240,7 +269,8 @@ INSERT INTO `usuarios` (`idUsuarios`, `Nombre1`, `Nombre2`, `Apellido1`, `Apelli
 (2, 'Alejandrooo', '', 'Morales', 'Loaiza', '3002082778', 'alejandro.morales9@misena.edu.co', 'alejo123', '12345', 1),
 (3, 'maicol', 'nadres', 'sanchez', 'woeijfweif', '2143234', 'jowef@gmail.com', 'maicol123', '12345', 2),
 (30, 'carlos', 'daniel', 'millan', 'varela', '3002982211', 'fr@gmail.carlos@gmail.com', 'carlos123', '12345', 1),
-(32, 'karen', 'sofia', 'ospina', 'hernandez', '3002982211', 'fr@gmail.com', 'alejo', '1122', 1);
+(32, 'karen', 'sofia', 'ospina', 'hernandez', '3002982211', 'fr@gmail.com', 'alejo', '1122', 1),
+(33, 'ergerg', 'erheth', 'ethteh', 'thrth', 'athth', 'ergreg@gmail.com', 'ewrwgrg', '1234', 1);
 
 --
 -- Índices para tablas volcadas
@@ -258,7 +288,8 @@ ALTER TABLE `clientes`
 ALTER TABLE `detalleprestamo`
   ADD PRIMARY KEY (`idDetallePrestamo`),
   ADD KEY `idLibro` (`idLibro`,`idCliente`,`idPrestamo`),
-  ADD KEY `idCliente` (`idCliente`);
+  ADD KEY `idCliente` (`idCliente`),
+  ADD KEY `detalleprestamo_ibfk_3` (`idPrestamo`);
 
 --
 -- Indices de la tabla `editoriales`
@@ -287,7 +318,8 @@ ALTER TABLE `penalizacion`
 ALTER TABLE `prestamos`
   ADD PRIMARY KEY (`idPrestamo`),
   ADD KEY `fk_Prestamos_Usuarios1` (`Prestador`),
-  ADD KEY `idDetalle` (`idDetalle`);
+  ADD KEY `idDetalle` (`idDetalle`),
+  ADD KEY `Clientes_idCliente` (`Clientes_idCliente`);
 
 --
 -- Indices de la tabla `roles`
@@ -316,31 +348,31 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `detalleprestamo`
 --
 ALTER TABLE `detalleprestamo`
-  MODIFY `idDetallePrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idDetallePrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `editoriales`
 --
 ALTER TABLE `editoriales`
-  MODIFY `idEditoriales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idEditoriales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `penalizacion`
 --
 ALTER TABLE `penalizacion`
-  MODIFY `idPenalizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idPenalizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -352,7 +384,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Restricciones para tablas volcadas
