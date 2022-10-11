@@ -84,6 +84,24 @@ class PrestamosModel
         }
     }
 
+
+    public function prestamosUpdate($numeroIdPrestamoDetalle,$numeroIdPrestamo)
+    {
+
+        try {
+            
+                $valor = $this->db->query("UPDATE `prestamos` SET `idDetalle`=:idDetalle WHERE idPrestamo = :idPrestamo");
+
+                $valor->bindValue(':idDetalle', $numeroIdPrestamoDetalle, pdo::PARAM_INT);
+                $valor->bindValue(':idPrestamo', $numeroIdPrestamo, pdo::PARAM_INT);
+                
+                $this->db->execute();
+                
+        } catch (Exception  $e) {
+            echo "error en " . $e->getMessage() . "en la linea " . $e->getLine();
+        }
+    }
+
     public function getLast()
     {
         $ultimo = $this->db->lastInsertId();
