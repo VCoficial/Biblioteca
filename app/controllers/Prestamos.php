@@ -9,7 +9,7 @@ class Prestamos extends Controller
     public function index()
     {
         //$data = $this->pacienteModel->listar();
-        $data = [];
+        $data = $this->prestamos->traerPrestamos();
         $this->renderView('/secciones/prestamos', $data);
     }
 
@@ -32,7 +32,7 @@ class Prestamos extends Controller
 
             $data = $this->prestamos->buscarClienteYLibro($data);
 
-            $this->renderView('/Registros/registrarPrestamos', $data);
+            echo json_encode($data);
         }
     }
 
@@ -41,22 +41,37 @@ class Prestamos extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-            $data = [
+            $data =  [
 
-                'idLibroPrestamo' => $_POST['idLibroPrestamo'],
-                'idNombreClientePrestamo' => $_POST['idNombreClientePrestamo'],
-                'fechaInicioPrestamo' => $_POST['fechaInicioPrestamo'],
-                'fechaFinalPrestamo' => $_POST['fechaFinalPrestamo'],
-                'cantidadLibros' => $_POST['cantidadLibros'],
-                'idPrestador' => $_POST['idPrestador'],
+                'idLibroPrestamo' => $_POST['idLibroInsertar'],
+                'idClientePrestamo' => $_POST['idClienteInsertar'],
+                'nomLibroInsertar' => $_POST['nomLibroInsertar'],
+                'nomClienteInsertar' => $_POST['nomClienteInsertar'],
+                'fechaInicioPrestamo' => $_POST['fechaInicioInsertar'],
+                'fechaFinalPrestamo' => $_POST['fechaFinInsertar'],
+                'cantidadLibros' => $_POST['cantidadInsertar'],
+                'idPrestador' => $_POST['prestadorInsertar'],
+                'idItem' =>  $_POST['iditem']
             ];
 
 
-            var_dump($data);
 
-            /*$data = $this->prestamos->buscarClienteYLibro($data);
+            $resultado = $this->prestamos->insertarPrestamos($data);
+            if ($resultado) {
+                $numeroIdPrestamo = $this->prestamos->getLast();
+                $respuesta = $this->prestamos->insertarDetallePrestamo($data, $numeroIdPrestamo);
+                $numeroIdPrestamoDetalle = $this->prestamos->getLast();
+                $this->prestamos->prestamosUpdate($numeroIdPrestamoDetalle,$numeroIdPrestamo);
+            }
 
-            $this->renderView('/Registros/registrarPrestamos', $data);*/
+            if ($respuesta) {
+                echo json_encode("Exito: se inserto");
+            } else {
+                echo json_encode("error:no se pudo insertar el registro");
+            }
+
+
+            //$this->index();
         }
     }
 }

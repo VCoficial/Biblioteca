@@ -9,6 +9,14 @@ class PrestamosModel
         $this->db = new Dbase;
     }
 
+    public function traerPrestamos()
+    {
+        $this->db->query("SELECT * from prestamos");
+
+
+        return $this->db->getAll();
+    }
+
     public function buscarClienteYLibro($data)
     {
         $valor = $this->db->query("SELECT idCliente, Nombre1,  libros.idLibro, libros.Nombre FROM clientes 
@@ -28,18 +36,75 @@ class PrestamosModel
 
     public function insertarPrestamos($data)
     {
-        $valor = $this->db->query("INSERT INTO prestamos
-        (`idPrestamo`, `Libros_idLibro`, `Clientes_idCliente`, `FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`) VALUES 
-        (:idLibroPrestamo,:idNombreClientePrestamo,:fechaInicioPrestamo,:fechaFinalPrestamo,:cantidadLibros,:idPrestador");
+        try {
+            $valor = $this->db->query("INSERT INTO prestamos
+            (`FechaInicio`, `FechaEntrega`, `cantidadLibros`, `Prestador`) VALUES 
+            (:fechaInicioPrestamo,:fechaFinalPrestamo,:cantidadLibros,:idPrestador)");
+
+            $valor->bindValue(':fechaInicioPrestamo', $data['fechaInicioPrestamo'], pdo::PARAM_STR);
+            $valor->bindValue(':fechaFinalPrestamo', $data['fechaFinalPrestamo'], pdo::PARAM_STR);
+            $valor->bindValue(':cantidadLibros', $data['cantidadLibros'], pdo::PARAM_INT);
+            $valor->bindValue(':idPrestador', $data['idPrestador'], pdo::PARAM_INT);
+
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception  $e) {
+            echo "error en " . $e->getMessage() . "en la linea " . $e->getLine();
+        }
+    }
+
+    public function insertarDetallePrestamo($data, $num)
+    {
+
+        try {
+            $numeroFilas = 0;
+            while ($numeroFilas < count((array) $data['idItem'])) {
+
+                $valor = $this->db->query("INSERT INTO detalleprestamo
+                (`idLibro`, `idCliente`, `idPrestamo`) VALUES
+                (:idLibro,:idCliente,:idPrestamo)");
+
+                $valor->bindValue(':idLibro', $data['idLibroPrestamo'][$numeroFilas], pdo::PARAM_INT);
+                $valor->bindValue(':idCliente', $data['idClientePrestamo'][$numeroFilas], pdo::PARAM_INT);
+                $valor->bindValue(':idPrestamo', $num, pdo::PARAM_INT);
+                $resulset = $this->db->execute();
+                $numeroFilas = $numeroFilas + 1;
+            }
+
+            if ($resulset == true) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception  $e) {
+            echo "error en " . $e->getMessage() . "en la linea " . $e->getLine();
+        }
+    }
 
 
-        $valor->bindParam(":idLibroPrestamo", $data['idLibroPrestamo'], pdo::PARAM_INT);
-        $valor->bindValue(":idNombreClientePrestamo", $data['idNombreClientePrestamo'], pdo::PARAM_STR);
-        $valor->bindValue(":fechaInicioPrestamo", $data['fechaInicioPrestamo'], pdo::PARAM_STR);
-        $valor->bindValue(":fechaFinalPrestamo", $data['fechaFinalPrestamo'], pdo::PARAM_STR);
-        $valor->bindValue(":cantidadLibros", $data['cantidadLibros'], pdo::PARAM_STR);
-        $valor->bindValue(":idPrestador", $data['idPrestador'], pdo::PARAM_STR);
+    public function prestamosUpdate($numeroIdPrestamoDetalle,$numeroIdPrestamo)
+    {
 
-        $this->db->execute();
+        try {
+            
+                $valor = $this->db->query("UPDATE `prestamos` SET `idDetalle`=:idDetalle WHERE idPrestamo = :idPrestamo");
+
+                $valor->bindValue(':idDetalle', $numeroIdPrestamoDetalle, pdo::PARAM_INT);
+                $valor->bindValue(':idPrestamo', $numeroIdPrestamo, pdo::PARAM_INT);
+                
+                $this->db->execute();
+                
+        } catch (Exception  $e) {
+            echo "error en " . $e->getMessage() . "en la linea " . $e->getLine();
+        }
+    }
+
+    public function getLast()
+    {
+        $ultimo = $this->db->lastInsertId();
+        return $ultimo;
     }
 }

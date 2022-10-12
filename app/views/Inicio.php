@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresa tus datos</title>
     <link rel="icon" href="<?php echo URLROOT; ?>img/Books_icon-icons.com_76879.png">
-    <link href="<?php echo URLROOT;?>css/login.css" rel="stylesheet">
+    <link href="<?php echo URLROOT; ?>css/login.css" rel="stylesheet">
 
     <link rel="stylesheet" href="">
 
@@ -15,7 +15,7 @@
 
 <body>
     <div class="login">
-        <h1>Bienvenidoo</h1>
+        <h1>Bienvenido</h1>
         <form method="POST" action="<?php echo URLROOT; ?>Menu/abrirMenu">
             <input id="UsuarioLogin" type="text" name="u" placeholder="Username" required="required" />
             <input id="PasswordLogin" type="password" name="p" placeholder="Password" required="required" />

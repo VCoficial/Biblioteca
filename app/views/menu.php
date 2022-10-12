@@ -5,7 +5,7 @@ session_start();
 ?>
 
 <div class="container">
-    <br><br>
+    <br>
     <?php
     if ($_SESSION["rol"] == "Administrador") {
     ?>
@@ -25,7 +25,7 @@ session_start();
                     <img src="<?php echo URLROOT; ?>img/libro.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-white ">Libros</h5>
-                        <a href="<?php echo URLROOT; ?>Libros" class="btn btn-primary">Ingresarrrrrrrrr</a>
+                        <a href="<?php echo URLROOT; ?>Libros" class="btn btn-primary">Ingresar</a>
                     </div>
                 </div><br>
             </div>
@@ -35,7 +35,7 @@ session_start();
                     <img src="<?php echo URLROOT; ?>img/libro-abierto.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-white ">Editoriales</h5>
-                        <a href="<?php echo URLROOT; ?>editoriales" class="btn btn-primary">Ingresarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</a>
+                        <a href="<?php echo URLROOT; ?>editoriales" class="btn btn-primary">Ingresar</a>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ session_start();
                 </div><br>
             </div>
         </div>
-
+        
         <div class="row text-center">
             <div class="col-md-6">
                 <div class="card mx-auto p-2 mx-auto bg-dark border border-1  border-white " style="width: 18rem;">

@@ -25,8 +25,6 @@
                     <th scope="col">Correo</th>
                     <th scope="col">Estado</th>
                     <th scope="col">VecesPenalizado</th>
-
-
                 </tr>
 
                 <?php foreach ($data as $recorrer) {  ?>

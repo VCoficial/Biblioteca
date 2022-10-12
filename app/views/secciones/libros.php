@@ -5,9 +5,9 @@
 
     <div class="row text-center ">
 
-        <div class="col-md-12 bg-dark mx-auto w-50  table-responsive border border-1 rounded    table-responsive "><br>
+        <div class="col-md-12 bg-dark mx-auto w-50  table-responsive border border-1 rounded  table-responsive "><br>
 
-            <form class="justify-content-between d-flex " method="POST" action="<?php echo URLROOT; ?>Libros/buscarLibro">
+            <form id="formbuscarLIbro" class="justify-content-between d-flex " method="POST" action="<?php echo URLROOT; ?>Libros/buscarLibro">
                 <a class="btn btn-success" href="<?php echo URLROOT; ?>Libros/imprimirReporte">Reporte</a>
                 <a class="btn btn-success w-25 " href="<?php echo URLROOT; ?>Libros/abrirRegistrarLibros">Registrar Libro</a>
                 <input name="buscarLibro" class="form-control w-25 " type="text">
@@ -41,10 +41,10 @@
                         <td><?php echo $recorrer->Estado ?></td>
                         <td><a class="btn btn-primary" href="<?php echo URLROOT; ?>Libros/editarLibro/<?php echo $recorrer->idLibro ?>">Editar</a></td>
 
-                        <?php if($recorrer->Estado == 1){?>
-                             <td><a class="btn btn-secondary" href="<?php echo URLROOT; ?>Libros/eliminarLibro/<?php echo $recorrer->idLibro ?>">Inhabilitar</a></td>
-                        <?php }else{ ?>
-                            <td><a class="btn btn-success" href="<?php echo URLROOT; ?>Libros/activarLibro/<?php echo $recorrer->idLibro ?>">Habilitar</a></td>    
+                        <?php if ($recorrer->Estado == 1) { ?>
+                            <td><a class="btn btn-secondary" href="<?php echo URLROOT; ?>Libros/eliminarLibro/<?php echo $recorrer->idLibro ?>">Inhabilitar</a></td>
+                        <?php } else { ?>
+                            <td><a class="btn btn-success" href="<?php echo URLROOT; ?>Libros/activarLibro/<?php echo $recorrer->idLibro ?>">Habilitar</a></td>
                         <?php } ?>
 
 
@@ -74,6 +74,6 @@
 
 <br><br><br><br><br><br><br><br><br>
 
-
+<script src="<?php echo URLROOT ?>public/js/buscarLibro"></script>
 
 <?php require_once '../app/views/inc/footer.php'; ?>

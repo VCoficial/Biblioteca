@@ -2,34 +2,36 @@
 session_start(); ?>
 
 <br>
+
 <div class="container-fluid  ">
 
     <div class="row text-center ">
-        <div class="col-md-12  ">
 
-            <form method="POST" class=" border border-1 rounded bg-dark p-3 mx-auto w-25" action="<?php echo URLROOT; ?>Prestamos/buscarLibroYCLiente">
+        <div class="col-md-4 ">
+
+
+            <form method="POST" class=" border border-1 rounded bg-dark p-3 mx-auto w-50" id="formBuscarLibroYCliente">
 
                 <input name="idLibro" type=" text" class="form-control w-75  mx-auto   " id="buscarLibro" placeholder="Buscar Libro" required> <br>
                 <input name="idCliente" type=" text" class="form-control w-75   mx-auto " id="buscarCliente" placeholder="Buscar Cliente" required> <br>
 
-                <input type="submit" class="btn btn-success" value="Buscar"></input>
+                <button id="buscarLibroYCliente" type="submit" class="btn btn-success" value="Buscar">Buscar</button>
 
             </form><br>
 
-            <form method="POST" action="<?php echo URLROOT; ?>Prestamos/insertarPrestamos" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
+            <form id="formAgregarLibro" method="POST" class="text-white  bg-dark p-3 border border-1 rounded w-50 mx-auto ">
 
                 <div class="form-group">
                     <label for="">Libro</label>
                     <select readonly name="idLibroPrestamo" class="form-control" id="idLibro">
-                        <option value="<?php echo $data->idLibro ?>"><?php echo $data->Nombre ?></option>
+                        <option value="" id="idtraerLibro"></option>
                     </select><br>
                 </div>
-
 
                 <div class="form-group">
                     <label for="">Cliente</label>
                     <select readonly name="idNombreClientePrestamo" class="form-control" id="idCliente">
-                        <option value="<?php echo $data->idCliente ?>"><?php echo $data->Nombre1 ?></option>
+                        <option id="idtraerCliente"></option>
                     </select>
                 </div>
                 <br>
@@ -46,7 +48,7 @@ session_start(); ?>
 
                 <div class="form-group">
                     <label for="">cantidad</label>
-                    <input name="cantidadLibros" type="text" class="form-control" id="fechaEntregaLibro" placeholder="Cantidad de libros a llevar"><br>
+                    <input name="cantidadLibros" type="text" class="form-control" id="cantidadLibros1" placeholder="Cantidad de libros a llevar"><br>
                 </div>
 
                 <div class="form-group">
@@ -54,16 +56,40 @@ session_start(); ?>
                     <input readonly name="idPrestador" value="<?php echo $_SESSION['idPrestador'] ?>" type="text" class="form-control" id="idPrestador" placeholder="prestador"><br>
                 </div>
 
-
-
-                <input value="Registrar Prestamo" type="submit" class="btn btn-primary w-50 m-1  ">
-
-
+                <button id="agregarLibrosPrestamos1" value="Registrar Prestamo" type="submit" class="btn btn-primary w-50 m-1  ">Agregar</button>
 
             </form>
 
         </div>
+
+
+        <div class="col-md-8 bg-dark table-responsive border border-1">
+
+            <form method="post" id="insertarDatos">
+
+
+
+                <br>
+                <table id="mitablita" class="table   table-dark ">
+                    <tr>
+                        <th scope="col">item</th>
+                        <th scope="col">Libro</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">fechaInicioPrestamo</th>
+                        <th scope="col">fechaEmtrega</th>
+                        <th scope="col">cantidadLibros</th>
+                        <th scope="col">Prestador</th>
+                    </tr>
+                </table>
+
+
+                <button id="insertarDatos1" type="submit" class="btn btn-success">Insertar</button>
+            </form>
+        </div>
+
     </div>
+    <script src="<?php echo URLROOT ?>public/js/agregarLibrosPrestamos.js"></script>
+    <script src="<?php echo URLROOT ?>public/js/buscarLibroYCliente.js"></script>
 
 
     <?php require_once '../app/views/inc/footer.php'; ?>

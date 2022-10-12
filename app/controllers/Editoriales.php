@@ -24,8 +24,9 @@ class Editoriales extends Controller
         ];
 
         $this->Editoriales->insertarEditorial($this->data);
+        $this->data = $this->Editoriales->traerEditoriales();
         //$data = $this->pacienteModel->listar();
-        $this->index();
+        echo json_encode($this->data);
     }
 
     public function abrirActualizarEditorial($id)
@@ -36,7 +37,7 @@ class Editoriales extends Controller
         ];
 
 
-        $this-> data = $this->Editoriales->abrirActualizarEditorial($this->data);
+        $this->data = $this->Editoriales->abrirActualizarEditorial($this->data);
 
         $this->renderView('/Actualizar/ActualizarEditoriales', $this->data);
     }
@@ -49,7 +50,7 @@ class Editoriales extends Controller
             'estadoEditorial' => $_POST['estadoEditorial'],
         ];
         $this->Editoriales->actualizarEditoriales($this->data);
-        $this->index();
+        echo json_encode(true);
     }
 
     public function buscarEditorial()
@@ -59,15 +60,14 @@ class Editoriales extends Controller
             'buscar' => $_POST['buscar']
         ];
 
-        if($this->data['buscar'] !="" ){
+        if ($this->data['buscar'] != "") {
 
             $this->data = $this->Editoriales->buscarEditorial($this->data);
 
-            
+
 
             $this->renderView('/secciones/editoriales', $this->data);
-
-        }else{
+        } else {
             $this->index();
         }
     }
@@ -79,5 +79,4 @@ class Editoriales extends Controller
         // renderisamos la vista
         $this->renderView('reportes/rptEditoriales', $this->data);
     }
-
 }

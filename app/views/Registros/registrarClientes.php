@@ -5,7 +5,7 @@
     <div class="row text-center ">
         <div class="col-md-12  ">
 
-            <form method="POST" action="<?php echo URLROOT; ?>Clientes/insertarClientes" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
+            <form id="formClientesRegistrar" method="POST" class="text-white  bg-dark p-3 border border-1 rounded w-25 mx-auto ">
 
                 <div class="form-group">
 
@@ -13,7 +13,7 @@
                     <input type="text" name="identificacion" class="form-control" placeholder="Ingrese la identificacion" id="identifiacion" required> <br>
                 </div>
 
-                
+
                 <div class="form-group">
                     <label for="">Ingrese su Primer nombre</label>
                     <input type="text" name="nombre1Cliente" class="form-control  " id="nombre1" required placeholder="Ingrese su Primer nombre"><br>
@@ -47,7 +47,7 @@
 
                 <div class="d-flex justify-content-around ">
 
-                    <input value="Registar Cliente" type="submit" class="btn btn-primary w-50 "></input>
+                    <button id="registrarClientes" value="Registar Cliente" type="submit" class="btn btn-primary w-50 ">Registrar Cliente</button>
                     <a class="btn btn-danger  " href="<?php echo URLROOT; ?>Clientes">Cancelar</a>
                 </div>
 
@@ -57,5 +57,5 @@
         </div>
     </div>
 
-
+    <script src="<?php echo URLROOT ?>public/js/registrarClientes.js"></script>
     <?php require_once '../app/views/inc/footer.php'; ?>
