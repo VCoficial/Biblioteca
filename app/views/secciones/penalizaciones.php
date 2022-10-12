@@ -9,8 +9,8 @@
         <div class="col-md-12 bg-dark mx-auto w-75  table-responsive border border-1 rounded    table-responsive"><br>
 
             <div class="justify-content-around d-flex">
-                <a class="btn btn-success border-1 border-dark" href="<?php echo URLROOT; ?>Penalizaciones/abrirRegistrarPenalizacion">Registrar Penalizacion</a>
-                <a href="<?php echo URLROOT; ?>Clientes/abrirBuscarClientes" class="btn btn-success border-1 border-dark">Buscar Cliente</a><br>
+                <a class="btn btn-success" href="<?php echo URLROOT; ?>Penalizaciones/abrirRegistrarPenalizacion">Registrar Penalizacion</a>
+                <a href="<?php echo URLROOT; ?>Clientes/abrirBuscarClientes" class="btn btn-success">Buscar Cliente</a><br>
             </div>
 
             <br>
@@ -36,15 +36,13 @@
 
                 <?php } ?>
 
-
-
             </table>
 
-            <?php for ($i = 1; $i <= $recorrer->scalar; $i++) { ?>
-
-                <a class="btn btn-primary m-1 " href=" <?php echo URLROOT; ?>Penalizaciones ?listar=<?php echo $i ?>"> <?php echo $i ?> </a>
-
-            <?php } ?>
+            <div class="m-3">
+                <?php for ($i = 1; $i <= $recorrer->scalar; $i++) { ?>
+                    <a class="btn btn-primary" href=" <?php echo URLROOT; ?>Penalizaciones ?listar=<?php echo $i ?>"> <?php echo $i ?> </a>
+                <?php } ?>
+            </div>
 
         </div>
 
