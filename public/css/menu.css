@@ -53,4 +53,5 @@ body {
       rgba(42, 60, 87, 0.4) 100%
     ),
     linear-gradient(135deg, #670d10 0%, #092756 100%);
+    background-attachment: fixed;
 }
