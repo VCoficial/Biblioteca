@@ -10,7 +10,6 @@
 
             <div class="justify-content-around d-flex  ">
                 <a class="btn btn-success w-25 " href="<?php echo URLROOT; ?>Prestamos/abrirRegistrarPrestamos">Registrar Prestamos</a>
-                <button class="btn btn-success w-25 ">ver total Prestamos</button>
                 <a href="<?php echo URLROOT; ?>Libros/abrirBuscarLibro" class="btn btn-success ml-2 text-white border border-1 border-dark  w-25 ">Buscar Libro</a><br>
             </div>
 
